@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./LoginPage.css";
 
+
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
@@ -14,7 +15,7 @@ function LoginPage() {
     setErr("");
     if (!email || !pw) return setErr("Please enter your email and password.");
     setLoading(true);
-    // TODO: call your auth API here
+    // TODO: call auth API here
     setTimeout(() => setLoading(false), 800); // mock
   }
 
@@ -22,7 +23,7 @@ function LoginPage() {
     <div className="login-container">
       <div className="login-box" role="region" aria-label="Sign in">
         <div className="login-brand">
-          <img src="/logo192.png" alt="Ball State logo" />
+          <img src="/bsulogo.png" alt="Ball State logo" />
           <h1>Sign in</h1>
           <p className="sub">Use your BSU credentials</p>
         </div>
