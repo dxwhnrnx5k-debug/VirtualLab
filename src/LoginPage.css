@@ -30,8 +30,11 @@
   text-align:center;
   margin-bottom:20px;
 }
-.login-brand img{
-  width:48px; height:48px; object-fit:contain;
+.login-box img {
+  width: 120px;         /* controls how large it appears */
+  height: auto;         /* keeps proportions */
+  display: block;
+  margin: 0 auto 1rem; 
 }
 .login-brand h1{
   margin:8px 0 4px; font-size:24px; font-weight:700; color:var(--text);

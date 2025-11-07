@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./LoginPage.css";
-
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
   const [showPw, setShowPw] = useState(false);
@@ -15,26 +16,23 @@ function LoginPage() {
     setErr("");
     if (!email || !pw) return setErr("Please enter your email and password.");
     setLoading(true);
-    // TODO: call auth API here
-    setTimeout(() => setLoading(false), 800); // mock
+
+    // Simulate successful login
+    setTimeout(() => {
+      setLoading(false);
+      navigate("/dashboard"); // redirect
+    }, 800);
   }
 
   return (
     <div className="login-container">
-      <div className="login-box" role="region" aria-label="Sign in">
-        <div className="login-brand">
-          <img src="/bsulogo.png" alt="Ball State logo" />
-          <h1>Sign in</h1>
-          <p className="sub">Use your BSU credentials</p>
-        </div>
+      <div className="login-box">
+        <img src="/bsulogo.png" alt="Ball State logo" />
+        <h1>Sign in</h1>
 
-        {err && (
-          <div className="alert" aria-live="polite">
-            {err}
-          </div>
-        )}
+        {err && <div className="alert">{err}</div>}
 
-        <form onSubmit={onSubmit} noValidate>
+        <form onSubmit={onSubmit}>
           <label htmlFor="email">Email / Username</label>
           <input
             id="email"
@@ -42,7 +40,6 @@ function LoginPage() {
             placeholder="username@bsu.edu"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            autoComplete="username"
           />
 
           <label htmlFor="password">Password</label>
@@ -53,13 +50,11 @@ function LoginPage() {
               placeholder="Password"
               value={pw}
               onChange={(e) => setPw(e.target.value)}
-              autoComplete="current-password"
             />
             <button
               type="button"
+              onClick={() => setShowPw(!showPw)}
               className="pw-toggle"
-              onClick={() => setShowPw((s) => !s)}
-              aria-label={showPw ? "Hide password" : "Show password"}
             >
               {showPw ? "Hide" : "Show"}
             </button>
@@ -74,8 +69,7 @@ function LoginPage() {
               />
               Remember me
             </label>
-
-            <a className="link" href="#forgot">Forgot password?</a>
+            <a href="#forgot" className="link">Forgot password?</a>
           </div>
 
           <button className="primary" type="submit" disabled={loading}>

@@ -1,0 +1,120 @@
+/* ---------- Layout ---------- */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #fafafa;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #222;
+}
+
+/* ---------- Header ---------- */
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: #a41e35; /* Ball State red */
+  color: #fff;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.dashboard-header .bsu-logo {
+  height: 45px;
+  width: auto;
+}
+
+.dashboard-header h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+/* ---------- Main Sections ---------- */
+.dashboard-main {
+  display: flex;
+  flex: 1;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+/* Left side: lab instructions */
+.lab-instructions {
+  flex: 2;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.lab-instructions h2 {
+  color: #a41e35;
+  margin-bottom: 1rem;
+}
+
+/* Right side: VM controls */
+.vm-controls {
+  flex: 1;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.vm-controls h2 {
+  color: #a41e35;
+  margin-bottom: 1rem;
+}
+
+.vm-controls p {
+  margin-bottom: 1rem;
+}
+
+/* ---------- Buttons ---------- */
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.btn {
+  flex: 1 1 45%;
+  min-width: 120px;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn.start {
+  background-color: #2d7d46; /* green */
+}
+
+.btn.pause {
+  background-color: #e0a800; /* yellow/gold */
+}
+
+.btn.reset {
+  background-color: #0062cc; /* blue */
+}
+
+.btn.stop {
+  background-color: #a41e35; /* BSU red */
+}
+
+.btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .dashboard-main {
+    flex-direction: column;
+  }
+}
